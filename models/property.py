@@ -28,6 +28,8 @@ class Property(models.Model):
 
     ], default='north')
 
+    active = fields.Boolean(default = 'True')
+
     owner_id = fields.Many2one('owner')
 
     owner_phone = fields.Char(related='owner_id.phone', readonly=False)
@@ -35,7 +37,7 @@ class Property(models.Model):
 
     tag_ids = fields.Many2many('tag')
 
-
+    line_ids = fields.One2many('property.line', 'property_id')
 
     state = fields.Selection([
         ('draft','Draft'),
@@ -109,4 +111,11 @@ class Property(models.Model):
         for rec in self:
             print('inside sold action')
             rec.state = 'sold'
+
+    class PropertyLine(models.Model):
+        _name = 'property.line'
+
+        property_id = fields.Many2one('property')
+        area = fields.Float()
+        description = fields.Char() 
 

@@ -4,7 +4,7 @@
     'version': '1.0',
     'summary': 'Centralize your address book',
 
-    'depends': ['base','sale','account','mail'
+    'depends': ['base','sale','account','mail', 'contacts'
                 ],
     'data': [
         'security/ir.model.access.csv',
@@ -12,7 +12,9 @@
         'views/property_view.xml',
         'views/owner_view.xml',
         'views/tag_view.xml',
-        'views/sale_order_view.xml'
+        'views/sale_order_view.xml',
+        'views/building_view.xml',
+        'views/res_partner_view.xml'
 
         ],
     'assets':{
