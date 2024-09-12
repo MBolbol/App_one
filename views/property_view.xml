@@ -5,9 +5,11 @@
         <field name="name">property_tree</field>
         <field name="model">property</field>
         <field name="arch" type="xml">
-            <tree class='header_custom'>
+            <tree class='header_custom' decoration-danger='(is_late)'>
                 <field name="name"/>
                 <field name="postcode"/>
+                <field name="is_late" invisible = '1'/>
+
                 <field name="owner_id"/>
                 <field name="date_availability"/>
                 <field name="expected_price"/>
@@ -48,6 +50,8 @@
                         <group string="General Info.">
                             <field name="postcode"/>
                             <field name="date_availability"/>
+                            <field name="expected_selling_date"/>
+                            <field name="is_late" invisible = '1'/>
                             <field name="expected_price"/>
                             <field name="selling_price"/>
                             <field name="Diff"/>
@@ -113,6 +117,29 @@
     <record id="property_action" model="ir.actions.act_window">
         <field name="name">property_action</field>
         <field name="res_model">property</field>
+    </record>
+    <!-- server action example -->
+    <record id="property_closed_server_action" model="ir.actions.server">
+        <field name="name">Closed</field>
+        <field name="model_id" ref = 'model_property'/>
+        <field name="binding_model_id" ref = 'model_property'/>
+        <field name="state">code</field>
+        <field name="code">
+            action = records.action_closed()
+        </field>
+    </record>
+    <!-- Automated action (cron jobs) example -->
+
+    <record id="check_selling_date_cron" model="ir.cron">
+        <field name="name">property: Check selling date</field>
+        <field name="model_id" ref = 'model_property'/>
+        <field name="state">code</field>
+        <field name="code">model.check_expected_selling_date()</field>
+        <field name="interval_number">1</field>
+        <field name="interval_type">days</field>
+        <!-- unlimited call every day -->
+        <field name="numbercall">-1</field>
+        <field name="active">True</field>
     </record>
     <menuitem
         id="property_menu_item"

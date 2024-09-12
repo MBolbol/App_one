@@ -1,27 +1,22 @@
 {
-    'name': 'App_one',
-    'author': 'Mostafa BOlbol',
-    'version': '1.0',
-    'summary': 'Centralize your address book',
-
-    'depends': ['base','sale','account','mail', 'contacts'
-                ],
-    'data': [
-        'security/ir.model.access.csv',
-        'views/base_menu.xml',
-        'views/property_view.xml',
-        'views/owner_view.xml',
-        'views/tag_view.xml',
-        'views/sale_order_view.xml',
-        'views/building_view.xml',
-        'views/res_partner_view.xml'
-
-        ],
-    'assets':{
-        'web.assets_backend':['/App_one/static/source/CSS/property.css']
-    },
-
-    'application': True,
-    'license': 'LGPL-3',
-
+    "name": "App_one",
+    "author": "Mostafa BOlbol",
+    "version": "1.0",
+    "summary": "My first application in ODOO",
+    "depends": ["base", "sale", "account", "mail", "contacts", "product"],
+    "data": [
+        "security/ir.model.access.csv",
+        "views/base_menu.xml",
+        "views/property_view.xml",
+        "views/owner_view.xml",
+        "views/tag_view.xml",
+        "views/sale_order_view.xml",
+        "views/building_view.xml",
+        "views/cars_view.xml",
+        "views/res_partner_view.xml",
+        "views/product_template_view.xml",
+    ],
+    "assets": {"web.assets_backend": ["/App_one/static/source/CSS/property.css"]},
+    "application": True,
+    "license": "LGPL-3",
 }

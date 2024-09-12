@@ -10,15 +10,57 @@
             <field name="partner_id" position='after'>
             
                 <field name="property_id"/>
+                <field name="car_id"/>
+
+                <field name="car_chassis_number"/>
+                <field name="car_color"/>
+                <field name="car_country"/>
 
             </field>
-            <!-- <xpath expr="//field[@name='partner_id']" position="after">
-                <field name="property_id"/>
-                
-            </xpath> -->
+
+
+            <xpath expr="//page[@name='order_lines']/field[@name='order_line']/tree/field[@name='name']" position="after"> 
+                            <!-- <field name="product_template_id"/> -->
+                            <!-- <field name="name"/> -->
+                            <field name="car_id" />
+                            <field name="car_chassis_number" />
+                            <field name="car_color" />
+                            <field name="car_country" />
+            </xpath>
+
+
+            <!-- <field name="order_line">
+                <tree>
+                    <field name="product_id"/>
+                    <field name="name"/>
+                    <field name="car_id"/>
+                    <field name="product_uom_qty"/>
+                    <field name="qty_delivered"/>
+                    <field name="qty_invoiced"/>
+                    <field name="price_unit"/>
+                    <field name="tax_id"/>
+                    <field name="price_subtotal"/>
+                </tree>
+            </field> -->
         </field>
     </record>
 
 </odoo>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
